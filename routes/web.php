@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,10 +18,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
 Route::get('/formulario' , function() {
     return view('formulario');
 });
-//Route::view('/formulario2', 'formulario');
+Route::view('/inicio', 'inicio');
 
 Route::post('/proceso' , function() {
     //Capturamos datos desde el form
@@ -30,6 +32,19 @@ Route::post('/proceso' , function() {
     return view('proceso', ['prueba' => $prueba]);
 });
 
-Route::post('/grupos' , function() {
-    return view('grupos');
+Route::get('/grupos' , function() {
+    $grupos = DB::table('aut_grupo')->get();
+
+    //Pasamos datos a la vista
+    return view('grupos', ['grupos' => $grupos]);
+});
+
+Route::get('/adminGrupos', function () {
+    // $grupo = DB::select('SELECT grupo, descgrp FROM aut_grupo');
+    $grupo = DB::table('aut_grupo')->get();
+    // $grupo = DB::table('aut_grupo')->select('grupo','descgrp')->get();   ##SI QUEREMOS SELECCIONAR 1 O MAS TABLAS
+
+
+    // dd($grupo);
+    return view('adminGrupos', ['grupo' => $grupo]);
 });
