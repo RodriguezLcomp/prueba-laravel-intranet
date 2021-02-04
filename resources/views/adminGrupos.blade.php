@@ -2,7 +2,7 @@
 
     @section('contenido')
 
-        <h1>Panel de administración de regiones</h1>
+        <h1>Panel de administración de Grupos</h1>
 
         @if( session('mensaje') )
             <div class="alert alert-success">

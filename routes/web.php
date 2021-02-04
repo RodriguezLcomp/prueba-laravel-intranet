@@ -52,3 +52,10 @@ Route::get('/adminGrupos', function () {
 Route::get('/agregarGrupo', function() {
     return view('agregarGrupo');
 });
+
+Route::post('/agregarGrupo', function() {
+    $grupo = $_POST['numeroGrupo'];
+    $desc = $_POST['nombreGrupo'];
+    $privado = $_POST['privado'];
+    $intimo = $_POST['intimo'];
+});
