@@ -48,3 +48,7 @@ Route::get('/adminGrupos', function () {
     // dd($grupo);
     return view('adminGrupos', ['grupo' => $grupo]);
 });
+
+Route::get('/agregarGrupo', function() {
+    return view('agregarGrupo');
+});
