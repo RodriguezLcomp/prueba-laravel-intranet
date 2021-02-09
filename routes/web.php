@@ -58,4 +58,25 @@ Route::post('/agregarGrupo', function() {
     $desc = $_POST['nombreGrupo'];
     $privado = $_POST['privado'];
     $intimo = $_POST['intimo'];
+
+    DB::table('aut_grupo')
+    ->insert(['numeroGrupo'=>$grupo,'nombreGrupo'=>$desc,'privado'=>$privado,'intimo'=>$intimo]);
+
+
+    return redirect('/adminGrupos')
+                ->with('mensaje','Grupo N°:'.$grupo.' agregado correctamente');
+});
+
+Route::get('/modificarGrupo/{grupo}', function($grupo) {
+    // $grupo = DB::select('SELECT grupo, descgrp, privado, qintimo
+    //                     FROM aut_grupo
+    //                     WHERE grupo = ?
+    //                     AND )
+
+    $grupo = DB::table('aut_grupo')
+                ->where('grupo', $grupo)
+                ->first();
+    dd($grupo);
+
+    return view('/modificarGrupo', [ 'grupo' => $grupo ]);
 });

@@ -9,11 +9,11 @@
                 @csrf
                 <label for="numeroGrupo">Numero del grupo</label>
                 <input type="text"
-                       name="numeroGrupo" id="num_grp"
+                       name="numeroGrupo" id="numeroGrupo"
                        class="form-control"> <br>
                 <label for="nombreGrupo">Descripcion</label>
                 <input type="text"
-                        name="nombreGrupo" id="nombreGrp"
+                        name="nombreGrupo" id="nombreGrupo"
                         class="form-control"> <br>
                 <label for="privado">Privado</label>
                 <input type="text"
@@ -23,7 +23,7 @@
                 <input type="text"
                         name="intimo" id="intimo"
                         class="form-control"> <br>
-                <button class="btn btn-dark">
+                <button class="btn btn-primary">
                     Agregar Grupo
                 </button>
                 <a href="/adminGrupos" class="btn btn-outline-secondary ml-3">

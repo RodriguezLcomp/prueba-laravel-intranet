@@ -18,7 +18,7 @@
                     <th>Privado</th>
                     <th>Intimo</th>
                     <th colspan="2">
-                        <a href="/agregarGrupo" class="btn btn-dark">
+                        <a href="/agregarGrupo" class="btn btn-primary">
                             Agregar
                         </a>
                     </th>
@@ -38,7 +38,7 @@
                         </a>
                     </td>
                     <td>
-                        <a href="/eliminarGrupo/{{ $grupos->grupo }}" class="btn btn-outline-secondary">
+                        <a href="/eliminarGrupo/{{ $grupos->grupo }}" class="btn btn-outline-danger">
                             Eliminar
                         </a>
                     </td>
