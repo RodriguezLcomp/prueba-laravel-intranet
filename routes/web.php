@@ -76,7 +76,7 @@ Route::get('/modificarGrupo/{grupo}', function($grupo) {
     $grupo = DB::table('aut_grupo')
                 ->where('grupo', $grupo)
                 ->first();
-    dd($grupo);
+    // dd($grupo);
 
     return view('/modificarGrupo', [ 'grupo' => $grupo ]);
 });
