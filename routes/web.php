@@ -97,15 +97,22 @@ Route::post('/modificarGrupo/{grupo}', function ($grupo) {
 });
 
 Route::get('/eliminarGrupo/{grupo}', function($grupo) {
-    // $grupo = DB::select('SELECT grupo, descgrp, privado, qintimo
-    //                     FROM aut_grupo
-    //                     WHERE grupo = ?
-    //                     AND )
-
     $grupo = DB::table('aut_grupo')
                 ->where('grupo', $grupo)
                 ->first();
-    // dd($grupo);
 
     return view('/eliminarGrupo', [ 'grupo' => $grupo ]);
+});
+
+Route::post('/eliminarGrupo', function() {
+    $grupo = $_POST['numeroGrupo'];
+    $desc = $_POST['nombreGrupo'];
+    $privado = $_POST['privado'];
+    $intimo = $_POST['intimo'];
+
+    DB::table('aut_grupo')
+        ->where('grupo', $grupo)
+        ->delete();
+
+    return redirect('/adminGrupos');
 });

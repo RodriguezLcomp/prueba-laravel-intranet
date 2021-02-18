@@ -4,20 +4,23 @@
     <h1>Baja de un grupo</h1>
     <div class="alert bg-light border-danger col-6 shadow-sm p-4 mx-auto">
         <form action="/eliminarRegion" method="post">
+            <b> Grupo: <span class="lead">{{ $grupo->grupo }} </span> </b><br><br>
             @csrf
-            <input type="text" id="nombreGrupo" name="nombreGrupo"
+            <input type="hidden" id="numeroGrupo" name="numeroGrupo"
+            value="{{  $grupo->grupo }}"
+            class="form-control">
+            <br>
+            <input type="hidden" id="nombreGrupo" name="nombreGrupo"
             value="{{  $grupo->descgrp }}"
             class="form-control">
             <br>
-            Privado:
             <br>
-            <input type="text" id="privado" name="privado"
+            <input type="hidden" id="privado" name="privado"
             value="{{ $grupo->privado }}"
             class="form-control">
             <br>
-            Intimo:
             <br>
-            <input type="text" id="qintimo" name="qintimo"
+            <input type="hidden" id="qintimo" name="qintimo"
             value="{{  $grupo->qintimo }}"
             class="form-control">
             <br>
