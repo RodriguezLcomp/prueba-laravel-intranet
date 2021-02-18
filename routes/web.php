@@ -60,7 +60,7 @@ Route::post('/agregarGrupo', function() {
     $intimo = $_POST['intimo'];
 
     DB::table('aut_grupo')
-    ->insert(['numeroGrupo'=>$grupo,'nombreGrupo'=>$desc,'privado'=>$privado,'intimo'=>$intimo]);
+    ->insert(['grupo'=>$grupo,'descgrp'=>$desc,'privado'=>$privado,'qintimo'=>$intimo]);
 
 
     return redirect('/adminGrupos')
@@ -79,4 +79,33 @@ Route::get('/modificarGrupo/{grupo}', function($grupo) {
     // dd($grupo);
 
     return view('/modificarGrupo', [ 'grupo' => $grupo ]);
+});
+
+Route::post('/modificarGrupo/{grupo}', function ($grupo) {
+    $grupo = $_POST['numeroGrupo'];
+    $desc = $_POST['nombreGrupo'];
+    $privado = $_POST['privado'];
+    $intimo = $_POST['intimo'];
+
+    $modificar = DB::table('aut_grupo')
+    ->where('grupo',$grupo)
+    ->update(['grupo'=>$grupo, 'descgrp'=>$desc, 'privado'=>$privado, 'qintimo'=>$intimo]);
+    // dd($modificar);
+
+    return redirect('/adminGrupos')
+    ->with('mensaje','Grupo N°:'.$modificar.' modificado correctamente');
+});
+
+Route::get('/eliminarGrupo/{grupo}', function($grupo) {
+    // $grupo = DB::select('SELECT grupo, descgrp, privado, qintimo
+    //                     FROM aut_grupo
+    //                     WHERE grupo = ?
+    //                     AND )
+
+    $grupo = DB::table('aut_grupo')
+                ->where('grupo', $grupo)
+                ->first();
+    // dd($grupo);
+
+    return view('/eliminarGrupo', [ 'grupo' => $grupo ]);
 });
